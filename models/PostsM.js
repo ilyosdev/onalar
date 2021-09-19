@@ -1,0 +1,26 @@
+const { Model } = require('objection');
+const knex = require('../utils/db')
+
+Model.knex(knex)
+
+class Question extends Model {
+    static get tableName() {
+        return 'posts';
+    }
+
+    // static get relationMappings() {
+    //     const Message = require('./Message')
+    //     return {
+    //         messages: {
+    //             relation: Model.HasManyRelation,
+    //             modelClass: Message,
+    //             join: {
+    //                 from: 'users.id',
+    //                 to: 'messages.user_id'
+    //             }
+    //         }
+    //     }
+    // }
+}
+
+module.exports = Question;
