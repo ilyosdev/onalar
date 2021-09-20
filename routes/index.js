@@ -8,19 +8,19 @@ const PostsC = require('../controllers/PostsC');
 const UsersC = require('../controllers/UsersC');
 
 // auth route
-router.post('/api/auth/register', AuthC.register);
-router.post('/api/auth/login', AuthC.login);
+router.post('/auth/register', AuthC.register);
+router.post('/auth/login', AuthC.login);
 
 
 // users route
-router.get('/api/users/', checkJwt, UsersC.getAllStuff);
-router.post('/api/users/', checkJwt, UsersC.createThing);
-router.get('/api/users/:id', checkJwt, UsersC.getOneThing);
-router.put('/api/users/:id', checkJwt, UsersC.modifyThing);
-router.delete('/api/users/:id', checkJwt, UsersC.deleteThing);
+router.get('/users/', checkJwt, UsersC.getAllStuff);
+router.post('/users/', checkJwt, UsersC.createThing);
+router.get('/users/:id', checkJwt, UsersC.getOneThing);
+router.put('/users/:id', checkJwt, UsersC.modifyThing);
+router.delete('/users/:id', checkJwt, UsersC.deleteThing);
 
 
 // posts route
-router.get('/api/posts/', PostsC.getAll);
+router.get('/posts/', PostsC.getAll);
 
 module.exports = router;
