@@ -1,11 +1,20 @@
-
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
+    return knex.schema.createTable('messages', t => {
+        t.increments('id')
+        t.integer('reciever').notNullable()
+        t.integer('sender').notNullable()
+        t.integer('chat_id').notNullable()
+        t.integer('reported_by').notNullable()
+        t.string('report_type').notNullable()
+        t.enu('type',['text','image', 'audio']).notNullable()
+        t.enu('status',['active','deleted', 'edited']).notNullable()
+        t.timestamps([useTimestamps], [defaultToNow])
+    })
+  };
   
-};
-
-exports.down = function(knex) {
-  
-};
+  exports.down = function(knex, Promise) {
+    return knex.schema.dropTable('messages')
+  };
 
 
 // CREATE TABLE IF NOT EXISTS `messages` (

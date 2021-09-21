@@ -2,7 +2,7 @@ module.exports = {
     development: {
         client: 'mysql',
         connection: {
-            database: 'ona12',
+            database: 'onalar',
             user: 'postgres',
             password: '1234'
         },

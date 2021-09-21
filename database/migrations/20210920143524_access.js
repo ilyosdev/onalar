@@ -1,11 +1,16 @@
-
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
+    return knex.schema.createTable('access', t => {
+        t.increments('id')
+        t.integer('user_id').notNullable()
+        t.integer('device_id').notNullable()
+        t.string('token').default(0)
+        t.timestamps([useTimestamps], [defaultToNow])
+    })
+  };
   
-};
-
-exports.down = function(knex) {
-  
-};
+  exports.down = function(knex, Promise) {
+    return knex.schema.dropTable('access')
+  };
 
 // SHOW WARNINGS;
 // CREATE TABLE IF NOT EXISTS `access` (

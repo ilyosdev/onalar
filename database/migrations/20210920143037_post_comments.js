@@ -1,12 +1,22 @@
-
-exports.up = function(knex) {
+exports.up = function(knex, Promise) {
+    return knex.schema.createTable('post_comments', t => {
+        t.increments('id')
+        t.string('comment').notNullable()
+        t.integer('post_id').notNullable()
+        t.integer('user_id').notNullable()
+        t.integer('comment_id').default(0)
+        t.boolean('is_thread').default(0)
+        t.boolean('is_pinned').default(0)
+        t.integer('likes').default(0)
+        t.integer('dislikes').default(0)
+        t.timestamps([useTimestamps], [defaultToNow])
+    })
+  };
   
-};
-
-exports.down = function(knex) {
-  
-};
-
+  exports.down = function(knex, Promise) {
+    return knex.schema.dropTable('post_comments')
+  };
+ 
 // CREATE TABLE "post_comments"(
 //     "id" serial PRIMARY KEY,
 //     "post_id" INTEGER NOT NULL,
