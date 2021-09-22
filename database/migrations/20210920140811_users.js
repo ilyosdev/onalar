@@ -7,9 +7,8 @@ exports.up = function(knex, Promise) {
         t.string('password')
         t.boolean('is_verified').default('0')
         t.boolean('is_blocked').default('0')
-        t.boolean('is_question').default('0')
-        t.enu('type',['user','coach']).default(0)
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.enu('type',['user','coach']).default('user')
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
         t.string('report_type').notNullable()
         t.string('message')
         t.enu('type',['pending','resolved']).notNullable().default('pending')
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

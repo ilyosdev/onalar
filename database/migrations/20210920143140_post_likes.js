@@ -4,7 +4,6 @@ exports.up = function(knex, Promise) {
         t.integer('post_id').notNullable()
         t.integer('user_id').notNullable()
         t.enu('status', ['liked', 'disliked', 'deleted']).notNullable()
-        t.timestamps([useTimestamps], [defaultToNow])
     })
   };
   

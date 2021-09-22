@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
         t.increments('id')
         t.integer('user_id').notNullable()
         t.string('verification_code').default(0)
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

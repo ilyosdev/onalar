@@ -8,7 +8,8 @@ exports.up = function(knex, Promise) {
         t.string('report_type').notNullable()
         t.enu('type',['text','image', 'audio']).notNullable()
         t.enu('status',['active','deleted', 'edited']).notNullable()
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
+        t.timestamp('updated_at').defaultTo(knex.fn.now());
     })
   };
   

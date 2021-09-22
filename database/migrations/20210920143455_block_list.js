@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         t.integer('users_id').notNullable()
         t.integer('blocked_by').notNullable()
         t.string('duration').notNullable()
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

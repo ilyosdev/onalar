@@ -3,13 +3,16 @@ const knex = require('../utils/db')
 
 Model.knex(knex)
 
-class User extends Model {
+class Messages extends Model {
     static get tableName() {
-        return 'users';
+        return 'messages';
     }
-    
     $beforeInsert() {
         this.created_at = new Date().toISOString();
+    }
+
+    $beforeUpdate() {
+    this.updated_at = new Date().toISOString();
     }
 
     // static get relationMappings() {
@@ -27,4 +30,4 @@ class User extends Model {
     // }
 }
 
-module.exports = User;
+module.exports = Question;

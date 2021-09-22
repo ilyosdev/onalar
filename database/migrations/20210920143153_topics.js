@@ -3,7 +3,6 @@ exports.up = function(knex, Promise) {
         t.increments('id')
         t.integer('parent_id').default(0)
         t.string('topic').notNullable()
-        t.timestamps([useTimestamps], [defaultToNow])
     })
   };
   

@@ -13,7 +13,8 @@ exports.up = function(knex, Promise) {
        t.integer('comment_count').default('0')
        t.integer('like_count').default('0')
        t.integer('share_count').default('0')
-       t.timestamps([useTimestamps], [defaultToNow])
+       t.timestamp('created_at').defaultTo(knex.fn.now());
+       t.timestamp('updated_at').defaultTo(knex.fn.now());
    })
  };
  

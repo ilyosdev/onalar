@@ -3,8 +3,8 @@ module.exports = {
         client: 'mysql',
         connection: {
             database: 'onalar',
-            user: 'postgres',
-            password: '1234'
+            user: 'root',
+            password: 'root'
         },
         pool: {
             min: 2,

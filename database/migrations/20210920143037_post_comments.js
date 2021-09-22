@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
         t.boolean('is_pinned').default(0)
         t.integer('likes').default(0)
         t.integer('dislikes').default(0)
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
         t.integer('sender_id').notNullable()
         t.integer('read').default(0)
         t.enu('type',['follow','post', 'question', 'question-anonym', 'comment', 'like-post', 'like-comment', 'reply-comment']).notNullable()
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

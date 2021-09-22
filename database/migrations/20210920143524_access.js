@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         t.integer('user_id').notNullable()
         t.integer('device_id').notNullable()
         t.string('token').default(0)
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   

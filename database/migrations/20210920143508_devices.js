@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
         t.string('device_id').notNullable()
         t.enu('type', ['ios', 'android']).notNullable()
         t.string('device_token').default(0)
-        t.timestamps([useTimestamps], [defaultToNow])
+        t.timestamp('created_at').defaultTo(knex.fn.now());
     })
   };
   
