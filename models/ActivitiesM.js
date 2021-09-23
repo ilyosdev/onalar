@@ -1,18 +1,18 @@
-const { Model } = require('objection');
+const { Model } = require('objection')
 const knex = require('../utils/db')
 
 Model.knex(knex)
 
-class Messages extends Model {
+class Activities extends Model {
     static get tableName() {
-        return 'messages';
+        return 'activities'
     }
     $beforeInsert() {
-        this.created_at = new Date().toISOString();
+        this.created_at = new Date().toISOString()
     }
 
     $beforeUpdate() {
-    this.updated_at = new Date().toISOString();
+        this.updated_at = new Date().toISOString()
     }
 
     // static get relationMappings() {
@@ -30,4 +30,4 @@ class Messages extends Model {
     // }
 }
 
-module.exports = Question;
+module.exports = Activities

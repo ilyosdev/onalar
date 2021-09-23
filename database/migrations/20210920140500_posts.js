@@ -1,26 +1,26 @@
-exports.up = function(knex, Promise) {
-   return knex.schema.createTable('posts', t => {
-       t.increments('id')
-       t.integer('user_id').notNullable()
-       t.string('content').notNullable()
-       t.string('desc')
-       t.enu('status', ['active', 'deleted', 'archived']).default('active');
-       t.boolean('is_anonym').default('0')
-       t.boolean('is_question').default('0')
-       t.enu('type',['location','text', 'auido', 'photo']).notNullable()
-       t.string('topic')
-       t.integer('location_id')
-       t.integer('comment_count').default('0')
-       t.integer('like_count').default('0')
-       t.integer('share_count').default('0')
-       t.timestamp('created_at').defaultTo(knex.fn.now());
-       t.timestamp('updated_at').defaultTo(knex.fn.now());
-   })
- };
- 
- exports.down = function(knex, Promise) {
-   return knex.schema.dropTable('posts')
- };
+exports.up = function (knex, Promise) {
+    return knex.schema.createTable('posts', (t) => {
+        t.increments('id')
+        t.integer('user_id').notNullable()
+        t.string('content').notNullable()
+        t.string('desc')
+        t.enu('status', ['active', 'deleted', 'archived']).default('active')
+        t.integer('is_anonym').default('0')
+        t.integer('is_question').default('0')
+        t.enu('type', ['location', 'text', 'auido', 'photo']).notNullable()
+        t.string('topic')
+        t.integer('region_id')
+        t.integer('comment_count').default('0')
+        t.integer('like_count').default('0')
+        t.integer('share_count').default('0')
+        t.timestamp('created_at').defaultTo(knex.fn.now())
+        t.timestamp('updated_at').defaultTo(knex.fn.now())
+    })
+}
+
+exports.down = function (knex, Promise) {
+    return knex.schema.dropTable('posts')
+}
 
 // CREATE TABLE "posts"(
 //    "id" serial PRIMARY KEY,

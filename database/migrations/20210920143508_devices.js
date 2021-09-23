@@ -1,18 +1,17 @@
-exports.up = function(knex, Promise) {
-    return knex.schema.createTable('devices', t => {
+exports.up = function (knex, Promise) {
+    return knex.schema.createTable('devices', (t) => {
         t.increments('id')
         t.integer('user_id').notNullable()
         t.string('device_id').notNullable()
         t.enu('type', ['ios', 'android']).notNullable()
         t.string('device_token').default(0)
-        t.timestamp('created_at').defaultTo(knex.fn.now());
+        t.timestamp('created_at').defaultTo(knex.fn.now())
     })
-  };
-  
-  exports.down = function(knex, Promise) {
+}
+
+exports.down = function (knex, Promise) {
     return knex.schema.dropTable('devices')
-  };
- 
+}
 
 // CREATE TABLE IF NOT EXISTS `devices` (
 //     `id` INT NOT NULL AUTO_INCREMENT,

@@ -1,21 +1,20 @@
-exports.up = function(knex, Promise) {
-    return knex.schema.createTable('users', t => {
+exports.up = function (knex, Promise) {
+    return knex.schema.createTable('users', (t) => {
         t.increments('id')
         t.string('phone').notNullable()
-        t.string('first_name').notNullable()
+        t.string('first_name')
         t.string('last_name')
-        t.string('password')
-        t.boolean('is_verified').default('0')
-        t.boolean('is_blocked').default('0')
-        t.enu('type',['user','coach']).default('user')
-        t.timestamp('created_at').defaultTo(knex.fn.now());
+        t.string('verification_code').default(0)
+        t.integer('is_verified').default('0')
+        t.integer('is_blocked').default('0')
+        t.enu('type', ['user', 'coach']).default('user')
+        t.timestamp('created_at').defaultTo(knex.fn.now())
     })
-  };
-  
-  exports.down = function(knex, Promise) {
+}
+
+exports.down = function (knex, Promise) {
     return knex.schema.dropTable('users')
-  };
- 
+}
 
 // CREATE TABLE "users"(
 //     "id" serial PRIMARY KEY,
