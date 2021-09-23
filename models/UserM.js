@@ -9,7 +9,9 @@ class User extends Model {
     }
 
     $beforeInsert() {
-        this.created_at = new Date().toISOString()
+        this.created_at = new Date()
+            .toISOString()
+            .replace(/([^T]+)T([^\.]+).*/g, '$1 $2')
     }
 }
 
