@@ -12,13 +12,14 @@ router.post('/auth/login', AuthC.login)
 router.post('/auth/verify', AuthC.verify)
 
 // users route
-router.get('/users/', checkJwt, UsersC.getAllStuff)
-router.post('/users/', checkJwt, UsersC.createThing)
-router.get('/users/:id', checkJwt, UsersC.getOneThing)
-router.put('/users/:id', checkJwt, UsersC.modifyThing)
-router.delete('/users/:id', checkJwt, UsersC.deleteThing)
+router.post('/users/setfirstname', checkJwt, UsersC.setFirstname)
+router.post('/users/setlastname', checkJwt, UsersC.setLastname)
+router.post('/users/setcountry', checkJwt, UsersC.setCountry)
+router.post('/users/setregion', checkJwt, UsersC.setRegion)
 
 // posts route
-router.get('/posts/', PostsC.getAll)
+router.get('/posts/userfeed', PostsC.getUserFeed)
+router.post('/posts/create', PostsC.createPost)
+router.post('/posts/update-userfeed', PostsC.UpdateUserFeed)
 
 module.exports = router

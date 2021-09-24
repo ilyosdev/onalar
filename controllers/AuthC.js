@@ -1,5 +1,9 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/UserM')
+const Eskiz = require('../services/SMSGatewayService')
+const logger = require('../services/Logger')
+// const smsGateway = new Eskiz()
+// smsGateway.sendPing()
 
 exports.login = async (req, res, next) => {
     // console.log(req.body)
@@ -33,6 +37,8 @@ exports.login = async (req, res, next) => {
             .where({
                 phone,
             })
+
+        logger.sendMessage(JSON.stringify({ phone, code }), 'info')
 
         return res.status(200).json({
             isOk: true,
