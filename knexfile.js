@@ -2,9 +2,9 @@ module.exports = {
     development: {
         client: 'mysql',
         connection: {
-            database: 'onalar',
-            user: 'root',
-            password: 'root',
+            database: process.env.DB_DBNAME,
+            user: process.env.DB_USERNAME,
+            password: process.env.DB_PASSWORD,
         },
         pool: {
             min: 2,
