@@ -28,4 +28,12 @@ router.post('/posts/update-userfeed', PostsC.UpdateUserFeed)
 // router.get('/meta/topics', PostsC.getUserFeed)
 // router.get('/posts/', PostsC.getUserFeed)
 
+router.get('/test', (req,res) => {
+    res.status(200).json({
+        data: {
+            message: 'hello'
+        }
+    })
+})
+
 module.exports = router

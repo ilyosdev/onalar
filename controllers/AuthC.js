@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 const User = require('../models/UserM')
-const Eskiz = require('../services/SMSGatewayService')
+// const Eskiz = require('../services/SMSGatewayService')
 const logger = require('../services/Logger')
 // const smsGateway = new Eskiz()
 // smsGateway.sendPing()
